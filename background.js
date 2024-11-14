@@ -18,7 +18,7 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === "translate") {
     chrome.storage.sync.get('targetLang', (data) => {
-      const targetLang = data.targetLang || 'en'; // Default to English if not set
+      const targetLang = data.targetLang || 'en'; 
       translateText(request.text, targetLang)
         .then(translatedText => {
           sendResponse({ translatedText: translatedText });
